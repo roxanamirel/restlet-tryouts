@@ -1,0 +1,56 @@
+
+***
+* Objectives
+***
+
+The objective is now to build a REST API for a train station.
+
+
+***
+* The application
+***
+
+On the server side, the main element will be the ticket office. When a traveler
+goes to the ticket office, he can:
+
+    - list the set of destinations
+    - get the information for a particular destination (in particular the number
+      of tickets available for this destination)
+    - buy a ticket to a particular destination
+
+You will have to create the internals, database, and resources to manage this 
+application so as to create this ticket office server.
+
+***
+* The API
+***
+
+
+The following table gives the URIs and their associated operations:
+
+URI                         | command   | description
+--------------------------------------------------------------------
+/destinations               | GET       | returns the list of possible destinations
+/destinations/{destId}      | GET       | returns the description of a destination
+/destinations/{destId}      | POST      | increases or decreases the number of tickets
+/destinations/{destId}      | DELETE    | removes this destination
+
+***
+* The client
+***
+
+To test your application, write a distinct application based on the Restlet
+resource client facility. Have a look at:
+http://restlet.com/technical-resources/restlet-framework/guide/2.2/introduction/first-steps/first-client
+for a little help. You can also have a look at:
+/share/m1info/ST/TP/TP2-Restlet/RestletClient.java
+
+
+***
+* Bonus: the trains
+***
+
+When a train arrives, it declares a number of free seats, to be added to the
+number of tickets that are available for a given destination. This can be
+modeled by the train being a thread, and acting as a client of the API, more
+precisely by increasing the number of available tickets for its destination.
